@@ -11,7 +11,7 @@ function ParseMarkdown(string: string, options?: ParseMarkdownOptions) {
   // Pad with newlines for compatibility.
   let output = "\n" + string + "\n";
 
-  Object.entries(Object.assign({}, parseMap, options?.formater)).forEach(
+  Object.entries(Object.assign({}, parseMap, options?.formaters)).forEach(
     function ([, p], i) {
       // if (i === 10) {
       //   console.log(output)

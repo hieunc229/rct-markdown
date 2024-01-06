@@ -1,10 +1,9 @@
+type RctMarkdownFormater = {
+  pattern?: RegExp;
+  replace: any;
+  type: ElType;
+};
 
 type ParseMarkdownOptions = {
-  formater?: {
-    [name: string]: {
-      pattern: RegExp;
-      replace: string;
-      type: ElType;
-    };
-  };
+  formaters?: { [name: string]: RctMarkdownFormater };
 };
