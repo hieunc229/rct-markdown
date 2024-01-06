@@ -46,7 +46,7 @@ const ul = {
 const heading = {
   // <h1>
   // A line starting with 1-6 hashes.
-  pattern: /(#{1,6})([^\n]+)/g,
+  pattern: /^(#{1,6})([^\n]+)/g,
   replace: "<h$L1>$2</h$L1>",
   type: BLOCK,
 };
@@ -209,7 +209,7 @@ const p = {
   // <p>
   // Any line surrounded by newlines that doesn't start with
   // an HTML tag, asterisk or numeric value with dot following.
-  pattern: /\n(?!<|-{3,})([^\n]+)/g,
+  pattern: /\n(?!\s*<|-{3,})([^\n]+)/g,
   // pattern: /\n(?!<\/?\w+>|\s?\*|\s?[0-9]+|>|\&gt;|-{3,})([^\n]+)/g,
   replace: "<p>$1</p>",
   type: BLOCK,
@@ -228,13 +228,13 @@ export const parseMap: {
     type: ElType;
   };
 } = {
+  code,
   ol,
   ul,
   a,
   heading,
   blockquote,
   img,
-  code,
   codeInline,
   linebreak,
   table,
