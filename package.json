@@ -1,0 +1,38 @@
+{
+  "name": "rct-markdown",
+  "version": "0.1.1",
+  "description": "Fast, safe and lightweight markdown component for React",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hieunc229/rct-markdown.git"
+  },
+  "keywords": [
+    "react",
+    "markdown",
+    "remark",
+    "react-markdown"
+  ],
+  "author": "Hieu C. Nguyen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hieunc229/rct-markdown/issues"
+  },
+  "homepage": "https://github.com/hieunc229/rct-markdown#readme",
+  "dependencies": {
+    "@types/dompurify": "^3.0.5"
+  },
+  "devDependencies": {
+    "dompurify": "^3.0.8"
+  },
+  "peerDependencies": {
+    "react": ">=0.13",
+    "react-dom": ">=0.13",
+    "@types/react": ">=0.13",
+    "@types/react-dom": ">=0.13"
+  }
+}
