@@ -1,5 +1,5 @@
 import ParseMarkdown from "./parser";
-import { sanitize } from "dompurify";
+import { sanitize as clean } from "dompurify";
 
 type Props = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -7,18 +7,18 @@ type Props = React.DetailedHTMLProps<
 > & {
   content?: string;
   formaters?: { [name: string]: RctMarkdownFormater };
+  sanitize?: boolean;
 };
 
-export default function ReactMarkdownLite(props: Props) {
-  const { children, content, formaters, ...rest } = props;
-
+export default function RctMarkdown(props: Props) {
+  const { children, content, sanitize = true, formaters, ...rest } = props;
+  const html = ParseMarkdown(content || (children as any), { formaters });
+  
   return (
     <div
       {...rest}
       dangerouslySetInnerHTML={{
-        __html: sanitize(
-          ParseMarkdown(content || (children as any), { formaters })
-        ),
+        __html: sanitize ? clean(html) : html,
       }}
     />
   );
