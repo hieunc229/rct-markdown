@@ -1,17 +1,27 @@
 import { parseMap } from "./map";
 import { clean, replace } from "./utils";
 
+let _maps = Object.assign({},parseMap);
+
+export function use(props: { [name:string]: RctMarkdownFormater }) {
+  Object.assign(_maps, props)
+}
+
+export function reset() {
+  _maps = Object.assign({},parseMap);
+}
+
 /**
  * Parses a provided Markdown string into valid HTML.
  *
  * @param  {string} string Markdown input for transformation
  * @return {string}        Transformed HTML output
  */
-function ParseMarkdown(string: string, options?: ParseMarkdownOptions) {
+function ParseMarkdown(string: string) {
   // Pad with newlines for compatibility.
   let output = "\n" + string + "\n";
 
-  Object.entries(Object.assign({}, parseMap, options?.formaters)).forEach(
+  Object.entries(_maps).forEach(
     function ([, p], i) {
       // if (i === 10) {
       //   console.log(output)

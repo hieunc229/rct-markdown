@@ -6,14 +6,13 @@ type Props = React.DetailedHTMLProps<
   HTMLDivElement
 > & {
   content?: string;
-  formaters?: { [name: string]: RctMarkdownFormater };
   sanitize?: boolean;
 };
 
 export default function RctMarkdown(props: Props) {
-  const { children, content, sanitize = true, formaters, ...rest } = props;
-  const html = ParseMarkdown(content || (children as any), { formaters });
-  
+  const { children, content, sanitize = true, ...rest } = props;
+  const html = ParseMarkdown(content || (children as any));
+
   return (
     <div
       {...rest}
