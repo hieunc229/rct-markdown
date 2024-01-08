@@ -222,11 +222,7 @@ const p = {
  * @type {Array}
  */
 export const parseMap: {
-  [name: string]: {
-    pattern?: RegExp;
-    replace: any;
-    type: ElType;
-  };
+  [name: string]: RctMarkdownFormater;
 } = {
   code,
   ol,
