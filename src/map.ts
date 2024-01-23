@@ -81,7 +81,7 @@ const underscore = {
   // <em>
   // Either one asterisk or one underscore, followed by any
   // characters, followed by the starting character. /(\*|_)(.*?)\1/g,
-  pattern: /_(.*)_/g,
+  pattern: /^_(.*)_\s/g,
   replace: "<u>$1</u>",
   type: INLINE,
 };
@@ -90,7 +90,7 @@ const strike = {
   // <em>
   // Either one asterisk or one underscore, followed by any
   // characters, followed by the starting character. /(\*|_)(.*?)\1/g,
-  pattern: /~(.*)~/g,
+  pattern: /^~(.*)~\s/g,
   replace: "<s>$1</s>",
   type: INLINE,
 };
@@ -99,7 +99,7 @@ const sub = {
   // <em>
   // Either one asterisk or one underscore, followed by any
   // characters, followed by the starting character. /(\*|_)(.*?)\1/g,
-  pattern: /\^(.*)\^/g,
+  pattern: /^\^(.*)\^\s/g,
   replace: "<sup>$1</sup>",
   type: INLINE,
 };
@@ -109,7 +109,7 @@ const a = {
   // Not starting with an exclamation mark, square brackets
   // surrounding any characters, followed by parenthesis surrounding
   // any characters.
-  pattern: /([^!])\[([^\[]+)\]\(([^\)]+)\)/g,
+  pattern: /^([^!])\[([^\[]+)\]\(([^\)]+)\)\s/g,
   replace: '$1<a href="$3">$2</a>',
   type: INLINE,
 };
@@ -119,7 +119,7 @@ const img = {
   // Starting with an exclamation mark, then followed by square
   // brackets surrounding any characters, followed by parenthesis
   // surrounding any characters.
-  pattern: /!\[([^\[]+)\]\(([^\)]+)\)/g,
+  pattern: /^!\[([^\[]+)\]\(([^\)]+)\)\s/g,
   replace: '<img src="$2" alt="$1" />',
   type: INLINE,
 };
@@ -129,13 +129,13 @@ const code = {
   //
   pattern: /```((.|\n)*?)```/g,
   replace: "<pre>$1</pre>",
-  type: INLINE,
+  type: BLOCK,
 };
 
 const codeInline = {
   // <code>
   //
-  pattern: /`(.*?)`/g,
+  pattern: /^`(.*?)`\s/g,
   replace: "<code>$1</code>",
   type: INLINE,
 };
@@ -143,7 +143,7 @@ const codeInline = {
 const linebreak = {
   // <hr>
   //
-  pattern: /\n-{3,}\n/g,
+  pattern: /^-{3,}\n/g,
   replace: "<hr />",
   type: BLOCK,
 };
