@@ -35,8 +35,10 @@ function ParseMarkdown(string: string) {
               arguments[2] = arguments[2].trim();
             }
 
-            // console.log(p.pattern, i)
-            if (i === 6) {
+            // @ts-ignore
+            // console.log(p.pattern, i, p.replace, replace.call(this, arguments, p.replace, p.type))
+            // if (i === 10) debugger
+            if (p.pattern === parseMap.code.pattern) {
               // trim code
               arguments[1] = arguments[1].trim().replace(/\n/g, "<br/>");
             }
