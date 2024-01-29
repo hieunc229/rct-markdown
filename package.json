@@ -1,11 +1,11 @@
 {
   "name": "rct-markdown",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "description": "Fast, safe and lightweight markdown component for React",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc && cp ./package.json dist/"
   },
   "repository": {
     "type": "git",
