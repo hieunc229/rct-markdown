@@ -127,7 +127,7 @@ const img = {
 const code = {
   // <pre>
   //
-  pattern: /```((.|\n)*?)```/g,
+  pattern: /```((.|\n)*?)\`{1,3}/g,
   replace: "<pre>$1</pre>",
   type: BLOCK,
 };

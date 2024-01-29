@@ -1,6 +1,6 @@
 {
   "name": "rct-markdown",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Fast, safe and lightweight markdown component for React",
   "main": "dist/index.js",
   "scripts": {
