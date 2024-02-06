@@ -1,4 +1,5 @@
 import { ElType } from "./enum";
+import { slugify } from "./utils";
 
 const { BLOCK, INLINE } = ElType;
 
@@ -10,8 +11,7 @@ function olReplacer(input: string): string {
       const _marker = marker.substring(0, marker.length - 1);
       return `${indent.replaceAll("  ", "<ol>")}<ol${
         "1aAiI".includes(_marker) ? ` type="${_marker}"` : ""
-      }><li>${innerContent}</li></ol>${indent.replaceAll("  ", "</ol>")}`;
-      // return `${indent.replaceAll("  ", "<ol>")}<ol><li>${innerContent}</li></ol>${indent.replaceAll("  ", "</ol>")}`;
+      }><li><span>${_marker}</span>. ${innerContent}</li></ol>${indent.replaceAll("  ", "</ol>")}`;
     }
   );
 }
@@ -46,9 +46,15 @@ const ul = {
 const heading = {
   // <h1>
   // A line starting with 1-6 hashes.
-  pattern: /\n(#{1,6})([^\n]+)/g,
-  replace: "<h$L1>$2</h$L1>",
+  // pattern: /\n(#{1,6})([^\n]+)/g,
+  // replace: `<h$L1 id="$2">$2</h$L1>`,
   type: BLOCK,
+  replace: function (input: string): string {
+    return input.replace(/\n(#{1,6})([^\n]+)/gm, function (_, l1, l2) {
+      const h = l1.length;
+      return `<h${h} id="${slugify(l2)}">${l2.trim()}</h${h}>`;
+    });
+  }
 };
 
 const blockquote = {
