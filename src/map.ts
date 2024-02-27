@@ -11,7 +11,7 @@ function olReplacer(input: string): string {
       const _marker = marker.substring(0, marker.length - 1);
       return `${indent.replaceAll("  ", "<ol>")}<ol${
         "1aAiI".includes(_marker) ? ` type="${_marker}"` : ""
-      }><li><span>${_marker}</span>. ${innerContent}</li></ol>${indent.replaceAll("  ", "</ol>")}`;
+      }><li data-marker="${_marker}">${innerContent}</li></ol>${indent.replaceAll("  ", "</ol>")}`;
     }
   );
 }

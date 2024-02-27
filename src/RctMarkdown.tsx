@@ -1,5 +1,5 @@
 import ParseMarkdown from "./parser";
-import { sanitize as clean } from "dompurify";
+import dompurify from "isomorphic-dompurify";
 import "./styles.css";
 
 type Props = React.DetailedHTMLProps<
@@ -17,9 +17,10 @@ export default function RctMarkdown(props: Props) {
   return (
     <div
       {...rest}
-      className={`${className||""} rct-markdown`}
+      className={`${className || ""} rct-markdown`}
       dangerouslySetInnerHTML={{
-        __html: sanitize ? clean(html) : html,
+        __html:
+          sanitize ? dompurify.sanitize(html) : html,
       }}
     />
   );
