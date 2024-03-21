@@ -195,7 +195,7 @@ const table = {
             .map((name: string) => `<th>${name}<th>`)
             .join("")}</tr></thead><tbody>`
         );
-        input = input.replace(seperator.line, "");
+        input = input.replace(seperator?.line, "");
 
         rows.forEach((r: { line: string; cels: string[] }, i: number) => {
           input = input.replace(
