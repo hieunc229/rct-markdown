@@ -24,10 +24,7 @@
   },
   "homepage": "https://github.com/hieunc229/rct-markdown#readme",
   "dependencies": {
-    "@types/dompurify": "^3.0.5"
-  },
-  "devDependencies": {
-    "dompurify": "^3.0.8"
+    "isomorphic-dompurify": "^2.7.0"
   },
   "peerDependencies": {
     "react": ">=0.13",
